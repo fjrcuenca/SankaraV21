@@ -1,0 +1,24 @@
+ 
+{
+    "lucas" : {
+	"girlfriend" : "priscilla",
+	"car" : "civic",
+	"major" : "communications",
+	"job" : "intel_security",
+	"favorite" : "toppings"
+    },
+    "eric" : {
+	"girlfriend" : "tiffany",
+	"car" : "civic",
+	"major" : "accounting",
+	"job" : "ey",
+	"favorite" : "veracruzana"
+    },
+    "francis" : {
+	"girlfriend" : "jessica",
+	"car" : "crv",
+	"major" : "coen",
+	"job" : "amazon",
+	"favorite" : "morgantodd"
+    }
+}

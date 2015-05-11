@@ -1,0 +1,74 @@
+{
+    "English" : {
+	"sign_in" : "Sign In",
+	"username" : "Username",
+	"password" : "Password",
+	"log_in" : "Log In",
+	"create_account" : "Create Account",
+	"select_another_language" : "Select Another Language"
+    },
+    "Gujarati" : {
+	"sign_in" : "Gujarati SignIn",
+	"username" : "Gujarati Username",
+	"password" : "Gujarati Password",
+	"log_in" : "Gujarati LogIn",
+	"create_account" : "Gujarati CreateAccount",
+	"select_another_language" : "Gujarati SelectAnotherLanguage"
+    },
+    "Hindi" : {
+	"sign_in" : "Hindi SignIn",
+	"username" : "Hindi Username",
+	"password" : "Hindi Password",
+	"log_in" : "Hindi LogIn",
+	"create_account" : "Hindi CreateAccount",
+	"select_another_language" : "Hindi SelectAnotherLanguage"
+    },
+    "Kannada" : {
+	"sign_in" : "Kannada SignIn",
+	"username" : "Kannada Username",
+	"password" : "Kannada Password",
+	"log_in" : "Kannada LogIn",
+	"create_account" : "Kannada CreateAccount",
+	"select_another_language" : "Kannada SelectAnotherLanguage"
+    },
+    "Marathi" : {
+	"sign_in" : "Marathi SignIn",
+	"username" : "Marathi Username",
+	"password" : "Marathi Password",
+	"log_in" : "Marathi LogIn",
+	"create_account" : "Marathi CreateAccount",
+	"select_another_language" : "Marathi SelectAnotherLanguage"
+    },
+    "Punjabi" : {
+	"sign_in" : "Punjabi SignIn",
+	"username" : "Punjabi Username",
+	"password" : "Punjabi Password",
+	"log_in" : "Punjabi LogIn",
+	"create_account" : "Punjabi CreateAccount",
+	"select_another_language" : "Punjabi SelectAnotherLanguage"
+    },
+    "Tamil" : {
+	"sign_in" : "Tamil SignIn",
+	"username" : "Tamil Username",
+	"password" : "Tamil Password",
+	"log_in" : "Tamil LogIn",
+	"create_account" : "Tamil CreateAccount",
+	"select_another_language" : "Tamil SelectAnotherLanguage"
+    },
+    "Telugu" : {
+	"sign_in" : "Telugu SignIn",
+	"username" : "Telugu Username",
+	"password" : "Telugu Password",
+	"log_in" : "Telugu LogIn",
+	"create_account" : "Telugu CreateAccount",
+	"select_another_language" : "Telugu SelectAnotherLanguage"
+    },
+    "Urdu" : {
+	"sign_in" : "Urdu SignIn",
+	"username" : "Urdu Username",
+	"password" : "Urdu Password",
+	"log_in" : "Urdu LogIn",
+	"create_account" : "Urdu CreateAccount",
+	"select_another_language" : "Urdu SelectAnotherLanguage"
+    }
+}
