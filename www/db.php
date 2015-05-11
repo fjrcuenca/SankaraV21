@@ -1,5 +1,5 @@
 <?php
-	include('config.php');
+	include('windowsConfig.php');
 
 	/**  Switch Case to Get Action from controller  **/
 	switch($_GET['action'])  {

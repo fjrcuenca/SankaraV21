@@ -62,12 +62,14 @@ angular.module('SankaraEye', ['ionic', 'ngCordova'])
 	};
 })
 
-.run(function($ionicPlatform, $cordovaSQLite) {
+.run(function($ionicPlatform, $cordovaSQLite, $rootScope) {
 
 	$ionicPlatform.ready(function() {
 
 		var dbName = 'sankara.sqlite';
+		$rootScope.dbName = dbName;
 console.log("db: " + dbName);
+		$rootScope.dbBefore = db;
 		//db = $cordovaSQLite.openDB(dbName);
 		//$cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS screening_sites_temp (site_name, site_kind, screening_date, headmaster, address, phone, cosponsor, cosponsor_phone, person_in_charge, person_in_charge_phone)");
 console.log("before open" + db);
@@ -75,6 +77,7 @@ console.log("before open" + db);
 		//db = window.sqlitePlugin.openDatabase({name: "sankara.sqlite", bgType: 1});
 		db = $cordovaSQLite.openDB(dbName);
 console.log("after open: " + db);
+		$rootScope.dbAfter = db;
 		db.executeSql(db, "CREATE TABLE IF NOT EXISTS screening_sites (site_name, site_kind, screening_date, headmaster, address, phone, cosponsor, cosponsor_phone, person_in_charge, person_in_charge_phone)");
 	});
 
