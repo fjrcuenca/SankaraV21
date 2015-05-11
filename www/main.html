@@ -218,11 +218,11 @@
 			<ion-view class="search-background" view-title="Sankara Eye Records">
 				<ion-content class="padding">
 					<button class="button button-full button-positive main" ng-click="insert('scu1', 'test1')">
-						Test Insert
+						Insert Into SQLite Database
 					</button>
-					DBNAME: {{dbName}} <br>
-					DBBEFORE: {{dbBefore}} <br>
-					DBAFTER: {{dbAFter}}
+					<button class="button button-full button-positive main" ng-click="view()">
+						View SQLite Database
+					</button>
 				</ion-content>
 			</ion-view>
 		</script>
@@ -972,6 +972,7 @@ PRACTICE DIV: trying to output results for selected screening site
 		<script id="templates/add_school_profile.html" type="text/ng-template" >
 			<ion-view title="Add School Profile" >
 				<ion-content has-header="true">
+				{{sqliteSite}}
 					<form name="add_school" ng-submit="school_submit(data)">
 						<div class="item item-divider">
 							<label class="item item-input">
