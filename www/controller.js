@@ -64,6 +64,47 @@ angular.module('SankaraEye', ['ionic', 'ngCordova'])
 
 .run(function($ionicPlatform, $cordovaSQLite, $rootScope) {
 
+	document.addEventListener("deviceready", onDeviceReady, false);
+
+	function populateDB(tx) {
+		console.log("PopulateDB: " + tx);
+		tx.executeSql('CREATE TABLE IF NOT EXISTS screening_sites (site_name, site_kind)');
+		//tx.executeSql('INSERT INTO screening_sites (site_name, site_kind) VALUES ("siten", "sitek")');
+		console.log("After PopulateDB: " + tx);
+		console.log("A2 PopulateDB: " + db);
+	}
+	
+	function addDB(tx) {
+		console.log("AddDB");
+		tx.executeSql('INSERT INTO screening_sites (site_name, site_kind) VALUES ("hello2", "hello3")');
+	}
+	
+	function errorCB(err) {
+		console.error("Error processing SQL: "+err.code);
+		console.error("Error processing SQL: "+err);
+	}
+
+	// Transaction success callback
+	//
+	function successCB() {
+		console.log("Success!!");
+		var db = window.openDatabase("sankara.sqlite", "3.6.20", "Cordova Demo", 200000);
+		db.transaction(addDB, errorCB);
+	}
+	
+	function onDeviceReady() {
+		var dbName = "sankara.sqlite";
+
+		$rootScope.dbName = dbName;
+		$rootScope.dbBefore = db;
+		console.log("Before open: " + db);
+		db = window.openDatabase(dbName, "3.6.20", "Cordova Demo", 200000);
+		$rootScope.dbAfter = db;
+		console.log("After open: " + db);
+		db.transaction(populateDB, errorCB, successCB);
+	}
+	
+/*
 	$ionicPlatform.ready(function() {
 
 		var dbName = 'sankara.sqlite';
@@ -80,40 +121,38 @@ console.log("after open: " + db);
 		$rootScope.dbAfter = db;
 		db.executeSql(db, "CREATE TABLE IF NOT EXISTS screening_sites (site_name, site_kind, screening_date, headmaster, address, phone, cosponsor, cosponsor_phone, person_in_charge, person_in_charge_phone)");
 	});
+*/
 
 })
 
 
-.controller('HomeCtrl', function($scope, $cordovaSQLite) {
+.controller('HomeCtrl', function($scope, $rootScope, $cordovaSQLite) {
   	$scope.insert = function(site_name, site_kind) {
-		var query = "INSERT INTO 'screening_sites' ('site_name', 'site_kind') VALUES (?, ?)";
+		var query = "INSERT INTO screening_sites (site_name, site_kind) VALUES (?, ?)";
 		//db.transaction(populateDB, errorCB, successCB);
-		console.log(site_name, site_kind);
-		$cordovaSQLite.execute(db, query, [site_name, site_kind]).then(function(res) {
+		//var query = "SELECT * FROM screening_sites";
+		console.log(site_name + " " + site_kind);
+		$cordovaSQLite.execute(db, query, [site_name, site_kind])
+		.then(function(res) {
 			console.log("Inserting");
 		}, function (err) {
 			console.log("Error");
 			console.error(err);
-		});
-
-		function populateDB(tx) {
-		    console.log("pop1");
-		    tx.executeSql('INSERT INTO screening_sites (site_name, site_kind) VALUES ("hi1", "hello1")');
-		    console.log("pop2");
-		}
-
-		// Transaction error callback
-		//
-		function errorCB(tx, err) {
-		    alert("Error processing SQL: "+err);
-		}
-
-		// Transaction success callback
-		//
-		function successCB() {
-		    alert("success!");
-		}
-
+		});		
+  	};
+	$scope.view = function() {
+		var query = "SELECT * from screening_sites";
+		$cordovaSQLite.execute(db, query, [])
+		.then(function(res) {
+			var len = res.rows.length;
+			$rootScope.sqliteSite = res.rows.item(0).site_name;
+			for (var i = 0; i < len; i++) {
+				console.log("Row" + i + " " + res.rows.item(i).site_name);
+			}
+		}, function (err) {
+			console.log("Error");
+			console.error(err);
+		});		
   	};
 
 })
