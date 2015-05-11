@@ -145,7 +145,9 @@ console.log("after open: " + db);
 		$cordovaSQLite.execute(db, query, [])
 		.then(function(res) {
 			var len = res.rows.length;
-			$rootScope.sqliteSite = res.rows.item(0).site_name;
+			$rootScope.sqliteSite0 = res.rows.item(0).site_name;
+			$rootScope.sqliteSite1 = res.rows.item(1).site_name;
+			$rootScope.sqliteSite2 = res.rows.item(2).site_name;
 			for (var i = 0; i < len; i++) {
 				console.log("Row" + i + " " + res.rows.item(i).site_name);
 			}
